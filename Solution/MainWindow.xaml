@@ -7,7 +7,7 @@
             <RowDefinition></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <FlowDocumentPageViewer>
+        <FlowDocumentPageViewer x:Name="DocViewer">
             <FlowDocument>
                 <Paragraph>
                     <Bold>Some bold text in the paragraph.</Bold>
@@ -28,5 +28,10 @@
 
             </FlowDocument>
         </FlowDocumentPageViewer>
+        
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Button Click="ButtonBase_OnClick">Print</Button>
+        </StackPanel>
+        
     </Grid>
 </Window>
