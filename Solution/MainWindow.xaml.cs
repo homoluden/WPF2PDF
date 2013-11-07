@@ -16,6 +16,10 @@ using System.IO.Packaging;
 using System.Windows.Xps.Packaging;
 using System.Windows.Xps;
 using System.Windows.Xps.Serialization;
+using DotLiquid;
+using dotTemplate = DotLiquid.Template;
+using System.Xml;
+using System.Windows.Markup;
 
 namespace Solution
 {
@@ -49,6 +53,21 @@ namespace Solution
                 PdfSharp.Xps.XpsConverter.Convert(pdfXpsDoc, "doc.pdf", 0);
             }
             
+        }
+
+        private void ParseButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            using (var stream = new FileStream("Templates\\report1.txt", FileMode.Open))
+            {
+                using (var reader = new StreamReader(stream))
+                {
+                    var templateString = reader.ReadToEnd();
+                    var template = dotTemplate.Parse(templateString);
+                    var docString = template.Render();
+
+                    DocViewer.Document = (FlowDocument) XamlReader.Parse(docString);
+                }
+            }
         }
     }
 }

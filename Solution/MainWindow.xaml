@@ -9,7 +9,7 @@
         </Grid.RowDefinitions>
         <FlowDocumentPageViewer x:Name="DocViewer">
             <FlowDocument>
-                <Paragraph>
+                <!--<Paragraph>
                     <Bold>Some bold text in the paragraph.</Bold>
                     Some text that is not bold.
                 </Paragraph>
@@ -24,12 +24,13 @@
                     <ListItem>
                         <Paragraph>ListItem 3</Paragraph>
                     </ListItem>
-                </List>
+                </List>-->
 
             </FlowDocument>
         </FlowDocumentPageViewer>
         
         <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Button Click="ParseButton_OnClick">Parse</Button>
             <Button Click="ButtonBase_OnClick">Print</Button>
         </StackPanel>
         
