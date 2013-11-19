@@ -1,41 +1,44 @@
 ﻿<FlowDocument xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 			  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <FlowDocument.Resources>
-      <Style TargetType="TextBlock">
-        <Setter Property="FontSize" Value="14"/>
-        <Setter Property="Margin" Value="5"/>
-        <Setter Property="TextWrapping" Value="Wrap"/>
-      </Style>
-    </FlowDocument.Resources>
-  
-    <Paragraph FontSize="24">
-        <Bold>{{ Title }}</Bold>
-    </Paragraph>
-    <Paragraph FontSize="16">
-        {{ Subtitle }}
-    </Paragraph>
-    <Paragraph FontSize="16">
-      <Bold>Steps to generate PDF:</Bold>
-    </Paragraph>
+  <FlowDocument.Resources>
+    <Style TargetType="TextBlock">
+      <Setter Property="FontSize" Value="14"/>
+      <Setter Property="Margin" Value="5"/>
+      <Setter Property="TextWrapping" Value="Wrap"/>
+    </Style>
+  </FlowDocument.Resources>
 
-    {% for step in Steps -%}
-  
-      <BlockUIContainer>
-        <Grid>
-          <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition />
-          </Grid.ColumnDefinitions>
+  <Paragraph FontSize="24">
+    <Bold>{{ Title }}</Bold>
+  </Paragraph>
+  <Paragraph FontSize="16">
+    {{ Subtitle }}
+  </Paragraph>
+  <Paragraph FontSize="16">
+    <Bold>Steps to generate PDF:</Bold>
+  </Paragraph>
 
-          <Ellipse Fill="#003481" Width="5" Height="5" Margin="5"/>
+  {% for step in Steps -%}
 
-          <TextBlock Text="{{ step.Title }}" Foreground="#003481" FontWeight="Bold" Grid.Column="1"/>
+  <BlockUIContainer>
+    <Grid>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto"/>
+        <ColumnDefinition Width="Auto"/>
+        <ColumnDefinition />
+      </Grid.ColumnDefinitions>
 
-          <TextBlock Text="{{ step.Description }}" Grid.Column="2"/>
-        </Grid>
-      </BlockUIContainer>
-  
-    {% endfor -%}
+      <Ellipse Fill="#003481" Width="5" Height="5" Margin="5"/>
 
+      <TextBlock Text="{{ step.Title }}" Foreground="#003481" FontWeight="Bold" Grid.Column="1"/>
+
+      <TextBlock Text="{{ step.Description }}" Grid.Column="2"/>
+    </Grid>
+  </BlockUIContainer>
+
+  {% endfor -%}
+
+  <Paragraph>
+    Specially for <Hyperlink NavigateUri="http://habrahabr.ru">HABRAHABR</Hyperlink>
+  </Paragraph>
 </FlowDocument>

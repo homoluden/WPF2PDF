@@ -15,21 +15,7 @@
                         <Setter Property="Margin" Value="5"/>
                     </Style>
                 </FlowDocument.Resources>
-                <BlockUIContainer>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-
-                        <Ellipse Fill="#003481" Width="5" Height="5" Margin="5"/>
-                        
-                        <TextBlock Text="Title" FontWeight="Bold" Grid.Column="1"/>
-
-                        <TextBlock Text="Description" Grid.Column="2"/>
-                    </Grid>
-                </BlockUIContainer>
+                
             </FlowDocument>
         </FlowDocumentReader>
         

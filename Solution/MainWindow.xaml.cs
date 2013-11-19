@@ -35,7 +35,7 @@ namespace Solution
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-            using (var stream = new FileStream("doc.xps", FileMode.Create))
+            using (var stream = new MemoryStream())
             {
                 using (var package = Package.Open(stream, FileMode.Create, FileAccess.ReadWrite))
                 {
