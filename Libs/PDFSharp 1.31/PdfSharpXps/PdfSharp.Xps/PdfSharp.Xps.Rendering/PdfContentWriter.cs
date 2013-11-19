@@ -572,6 +572,29 @@ namespace PdfSharp.Xps.Rendering
           Debug.Assert(false, "Unknown brush type encountered.");
         }
       }
+
+        // Checking is there a link attached with this Path
+        if (path.FixedPage_NavigateUri != null && !string.IsNullOrEmpty(path.FixedPage_NavigateUri.Trim()))
+        {
+            var bounds = path.Data.GetBoundingBox();
+            var xpsPage = path.Parent as FixedPage;
+            if (xpsPage != null)
+            {
+                var pxToPtScale = xpsPage.PointHeight/xpsPage.Height;
+                try
+                {
+                    var uri = new Uri(path.FixedPage_NavigateUri);
+                    page.AddWebLink(
+                        new PdfRectangle(bounds.Left*pxToPtScale, page.Height - bounds.Top*pxToPtScale,
+                                         bounds.Right*pxToPtScale, page.Height - bounds.Bottom*pxToPtScale),
+                        uri.AbsoluteUri);
+                }
+                catch (Exception)
+                {
+                    Debug.Assert(false, "WritePath(...) > Invalid URI string provided");
+                }
+            }
+        }
       WriteRestoreState("end Path", path.Name);
     }
 
