@@ -40,9 +40,6 @@
     <Reference Include="PdfSharp-WPF">
       <HintPath>..\Libs\PDFSharp 1.31\PdfSharpXpsBin\PdfSharp-WPF.dll</HintPath>
     </Reference>
-    <Reference Include="PdfSharp.Xps">
-      <HintPath>..\Libs\PDFSharp 1.31\PdfSharpXpsBin\PdfSharp.Xps.dll</HintPath>
-    </Reference>
     <Reference Include="ReachFramework" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -110,6 +107,12 @@
     <None Include="Templates\report1.lqd">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Libs\PDFSharp 1.31\PdfSharpXps\PdfSharp.Xps\PdfSharp.Xps.csproj">
+      <Project>{0bc3964b-a3bc-49d5-9b7c-463299b5a166}</Project>
+      <Name>PdfSharp.Xps</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
