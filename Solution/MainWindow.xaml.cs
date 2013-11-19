@@ -64,7 +64,6 @@ namespace Solution
                     var templateString = reader.ReadToEnd();
                     var template = dotTemplate.Parse(templateString);
                     var docString = template.Render();
-
                     DocViewer.Document = (FlowDocument) XamlReader.Parse(docString);
                 }
             }
